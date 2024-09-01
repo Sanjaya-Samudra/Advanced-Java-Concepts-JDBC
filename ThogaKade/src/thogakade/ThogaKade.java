@@ -7,7 +7,7 @@ public class ThogaKade {
         /*String SQL="Insert into Customer values('C011','Don','Galle',45000)";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/ThogaKade", "root", "2003");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/ThogaKade", "root", "password");
             Statement stm= connection.createStatement();
             int res=stm.executeUpdate(SQL);
             if(res>0){
@@ -22,7 +22,7 @@ public class ThogaKade {
         String SQL="Update Customer set salary=salary*1.15";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/ThogaKade", "root", "2003");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/ThogaKade", "root", "password");
             Statement stm= connection.createStatement();
             int res=stm.executeUpdate(SQL);
             if(res>0){
