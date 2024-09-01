@@ -1,0 +1,31 @@
+Steps need to be taken in order make the connection between java and database.
+
+1. String SQL = "Insert into Customer values('C111', 'Don', 'Galle', 20000)";
+2. Run the driver s/w;
+3. Create SQL connection to the DataBase;
+4. Create a Statement;
+5. Execute/post the SQL;
+
+Step 1- Inserting queries.
+
+	String SQL = "Insert into Customer values('C111', 'Don', 'Galle', 20000)";
+
+Step 2 - Runing driver software
+
+	Class.forName("com.mysql.cj.jdbc.Driver");
+
+Step 3 - Create SQL connection to the DataBase;
+
+	Connection connection = DriverManager.getConnection("jdbc:mysql//localhost/ThogaKade", "root", "2003");
+
+Step 4 - Create a Statement;
+
+	Statement stm = connection.createStatement();
+
+Step 5 - Execute/post the SQL;
+
+	int res = stm.executeUpdate(SQL);
+            
+            if(res>0){
+                System.out.println("Added Success");
+            }
