@@ -167,6 +167,32 @@ public class ThogaKade {
         //This method called Prepared Statement method, where we do not mention the content
         //in the SQL, but we are taking a prepared statement, so we can set values to the given
         //prepared statement as we decide, where numbering begin from 1 to expected columns.*/
+        
+        //Singleton Design Pattern
+        /*
+        1. Make the constructor private.
+        2. Make instance method(getInstance()). Within it, returning of DBconnection object is happens.
+        3. Make a connection method(getConnection()). Within it, returning of connection object is happens there.
+        4. In there we know that, we don't handle exceptions, we only just throw the exceptions.
+        import java.sql.*;
+
+        public class DBConnection {
+            private static DBConnection dbConnection;
+            private Connection connection;
+            private DBConnection() throws SQLException, ClassNotFoundException{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost/ThogaKade", "root", "2003");
+            }
+            public static DBConnection getInstance() throws SQLException, ClassNotFoundException{
+                if(dbConnection==null){
+                    dbConnection = new DBConnection();
+                }
+                return dbConnection;
+            }
+            public Connection getConnection(){
+                return connection;
+            }
+        }*/
     }
     
 }
