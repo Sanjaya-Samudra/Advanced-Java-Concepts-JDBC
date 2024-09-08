@@ -192,7 +192,46 @@ public class ThogaKade {
             public Connection getConnection(){
                 return connection;
             }
+        }
+        
+        //----------------------------MVC(Model Version Controller)------------------------------------------
+        
+        // This is how we gonna include SQL statement to update values in database.
+        // In MVC design pattern, updating of something happens in seperate class.(Ex: CustomerController)
+        // Here the updateCustomer is a method found in CustomerController.
+        // Then there is a seperate class to control this. Where in there is the object is created(Ex: UpdateCustomerForm).
+        
+        public static boolean updateCustomer(Customer customer) throws ClassNotFoundException, SQLException{
+            Connection connection = DBConnection.getInstance().getConnection();
+            String SQL = "UPDATE Customer set name = ?, address = ?, salary = ? WHERE id = ?";
+            PreparedStatement stm = connection.prepareStatement(SQL);
+
+            stm.setObject(1, customer.getName());
+            stm.setObject(2, customer.getAddress());
+            stm.setObject(3, customer.getSalary());
+            stm.setObject(4, customer.getId());
+
+            int res = stm.executeUpdate();
+            return res>0;
+        }
+        
+        // This is what we can see in the UpdateCustomerForm.
+        // Where we create a customer of class Customer to store our details and we gonna update it.
+        // For that purpose, is why we are transferring created object to CustomerController class.
+        // If it is succesfull it will pop up with a message.
+        
+        private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {                                          
+            try {
+                Customer customer = new Customer(txtId.getText(), txtName.getText(), txtAddress.getText(), Double.parseDouble(txtSalary.getText()));
+                boolean isUpdate = CustomerController.updateCustomer(customer);
+                if(isUpdate){
+                    JOptionPane.showMessageDialog(this, "Update Success");
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
         }*/
+        
     }
     
 }
