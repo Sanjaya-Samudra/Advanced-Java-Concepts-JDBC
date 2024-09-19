@@ -18,6 +18,8 @@ public class ThogaKade {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+
+//----------------------------------------------------------------------------------------------------------------------------------
         
         String SQL="Update Customer set salary=salary*1.15";
         try {
@@ -35,6 +37,8 @@ public class ThogaKade {
             System.out.println(ex.getMessage());
         }
 
+//----------------------------------------------------------------------------------------------------------------------------------
+
         String SQL="Delete from Customer where name='Danapala'";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -50,8 +54,10 @@ public class ThogaKade {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+
+//----------------------------------------------------------------------------------------------------------------------------------
         
-        // Shows Error - Select Queries Cannot Execute Using This Method. 
+        // Shows Error - Select Queries Cannot Execute Using below Method. 
         
         String SQL="Select * From Customer";
         try {
@@ -69,6 +75,8 @@ public class ThogaKade {
             System.out.println(ex.getMessage());
         }
 
+//----------------------------------------------------------------------------------------------------------------------------------
+
         // Correct way to execute "Select" Query.
         
         String SQL="Select * From Customer";
@@ -76,7 +84,7 @@ public class ThogaKade {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/ThogaKade", "root", "password");
             Statement stm= connection.createStatement();
-            ResultSet rst = stm.executeQuery(SQL);
+            ResultSet rst = stm.executeQuery(SQL); // Instead of executeUpdate(SQL), this case we use executeQuery(SQL).
             rst.next(); 
             String id=rst.getString("id");
             String name=rst.getString("name"); //2
@@ -90,6 +98,8 @@ public class ThogaKade {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+
+//----------------------------------------------------------------------------------------------------------------------------------
         
         // But above way only display us with a single record only. If we want to see all, need to iterate.
         
@@ -112,6 +122,8 @@ public class ThogaKade {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+
+//----------------------------------------------------------------------------------------------------------------------------------
         
         //Using text field values as input to the database by using inset into SQL statement.
         
@@ -122,7 +134,7 @@ public class ThogaKade {
         String SQL = "INSERT INTO Customer VALUES('"+id+"','"+name+"','"+address+"','"+salary+"')";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/ThogaKade", "root", "2003");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/ThogaKade", "root", "password");
             Statement stm = connection.createStatement();
             int res = stm.executeUpdate(SQL);
             if(res > 0){
@@ -136,6 +148,8 @@ public class ThogaKade {
         
         //Like these we can see that values in the textFields are taken into variables and they are assigned to
         //variables, to use in SQL statement.
+
+//----------------------------------------------------------------------------------------------------------------------------------
         
         // Alternate method to do above scenario.
         
@@ -167,6 +181,8 @@ public class ThogaKade {
         //This method called Prepared Statement method, where we do not mention the content
         //in the SQL, but we are taking a prepared statement, so we can set values to the given
         //prepared statement as we decide, where numbering begin from 1 to expected columns.*/
+
+//----------------------------------------------------------------------------------------------------------------------------------
         
         //Singleton Design Pattern
         /*
