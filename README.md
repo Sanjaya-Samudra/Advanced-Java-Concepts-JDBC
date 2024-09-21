@@ -37,9 +37,14 @@ To get started with this project, you'll need to have the following prerequisite
 - **Java Development Kit (JDK) 8 or higher**
 - **MySQL Database** (or another supported database system)
 
+## Examples
+
 ### Cloning the Repository
 
 Clone this repository to your local machine using:
 
 ```bash
 git clone https://github.com/Sanjaya-Samudra/Advanced-Java-Concepts-JDBC.git
+
+## Database Setup
+
